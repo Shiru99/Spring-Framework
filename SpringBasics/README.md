@@ -1,14 +1,21 @@
-## Getting Started
+# Spring FrameWork
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Spring Bean Factory
 
-## Folder Structure
+A BeanFactory is like a factory class that contains a collection of beans. The BeanFactory holds Bean Definitions of multiple beans within itself and then instantiates the bean whenever asked for by clients. The BeanFactory is the actual container which instantiates, configures, and manages a number of beans.
 
-The workspace contains two folders by default, where:
+### Factory Pattern & Spring Bean Factory
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Working : Object factory reads configurations (blueprints of objects) and creates new objects accordingly and returns these objects to the requesting object
 
-## Dependency Management
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+<img src="Screenshots/factory-pattern.png" alt="factory-pattern" width="480"/>
+<img src="Screenshots/bean-factory.png" alt="bean-factory.png" width="480"/>
+
+
+### ApplicationContext  
+
+The ApplicationContext builds on top of the BeanFactory (it's a subclass) and adds other functionality such as easier integration with Springs AOP features, message resource handling (for use in internationalization), event propagation, declarative mechanisms to create the ApplicationContext and optional parent contexts, and application-layer specific contexts such as the WebApplicationContext, among other enhancements.
+
+<img src="Screenshots/application-context.png" alt="application-context" width="480"/>
+<img src="Screenshots/working-of-bean-factory.png" alt="working-of-bean-factory" width="480"/>
