@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+    <bean id="origin" class="io.summer.Part4.Point">
+        <property name="x" value="0"></property>
+        <property name="y" value="0"></property>
+    </bean>
+
+    <bean id="ScalarTriangle" class="io.summer.Part4.Triangle">
+
+        <property name="p1" ref="origin"></property>
+        <property name="p2" ref="pointC"></property>
+        <property name="p3" ref="pointB"></property>
+
+    </bean>
+
+     <!-- Alias using tag-"name" --> 
+    <bean id="ScalarTriangle0" class="io.summer.Part4.Triangle" name="SecondScalarTriangle">
+
+        <property name="p1" ref="pointB"></property>
+
+        <!-- ref - provides the object reference -->
+        <property name="p3">
+            <!-- inner bean - no id or ref required -->
+            <bean class="io.summer.Part4.Point">
+                <property name="x" value="3"></property>
+                <property name="y" value="3"></property>
+            </bean>
+        </property>
+
+        <property name="p2" ref="pointC">
+            <!-- <idref bean="origin" /> -->
+
+            <!-- 
+                
+                the <idref> tag doesn’t allow to reference a bean using an id, rather it allows to return the id as an string to be used as a value, but verifying that the id is a valid bean id
+
+                <property name="targetName">
+                    <idref bean="theTargetBean" />
+                </property>
+
+                (Both are equivalent)
+
+                <property name="targetName" value="theTargetBean" />
+
+             -->
+        </property>
+        
+    </bean>
+
+
+    <bean id="pointB" class="io.summer.Part4.Point">
+        <property name="x" value="11"></property>
+        <property name="y" value="19"></property>
+    </bean>
+
+    <bean id="pointC" class="io.summer.Part4.Point">
+        <property name="x" value="13"></property>
+        <property name="y" value="17"></property>
+    </bean>
+
+    <!-- Alias -->
+    <alias name="ScalarTriangle0" alias="2ndScalarTriangle" />
+</beans>
