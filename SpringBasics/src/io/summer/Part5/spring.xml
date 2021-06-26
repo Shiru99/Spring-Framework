@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+    <bean id="polygonX" class="io.summer.Part5.Polygon">
+        <property name="points">
+            <!-- <map></map> -->
+            <!-- <set></set> -->
+            <list>
+                <ref bean="origin"/>
+                <ref bean="pointA"/>
+                <ref bean="pointB"/>
+                <ref bean="pointC"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="origin" class="io.summer.Part5.Point">
+        <property name="x" value="0"></property>
+        <property name="y" value="0"></property>
+    </bean>
+
+    <bean id="pointA" class="io.summer.Part5.Point">
+        <property name="x" value="0"></property>
+        <property name="y" value="10"></property>
+    </bean>
+
+    <bean id="pointB" class="io.summer.Part5.Point">
+        <property name="x" value="10"></property>
+        <property name="y" value="10"></property>
+    </bean>
+
+    <bean id="pointC" class="io.summer.Part5.Point">
+        <property name="x" value="10"></property>
+        <property name="y" value="0"></property>
+    </bean>
+
+</beans>
