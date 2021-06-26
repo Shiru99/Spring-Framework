@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+    <bean id="ScalarTriangle" class="io.summer.Part7.Triangle">
+        <property name="p1" ref="origin"/>
+        <property name="p2" ref="pointC"/>
+        <property name="p3" ref="pointB"/>
+    </bean>
+
+    <bean id="ScalarTriangle0" class="io.summer.Part7.Triangle">
+        <property name="p1" ref="pointB"/>
+        <property name="p2" ref="pointC"/>
+        <property name="p3" ref="pointA"/>
+        
+    </bean>
+
+    <bean id="origin" class="io.summer.Part7.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="pointA" class="io.summer.Part7.Point">
+        <property name="x" value="7"/>
+        <property name="y" value="13"/>
+    </bean>
+
+    <bean id="pointB" class="io.summer.Part7.Point">
+        <property name="x" value="11"/>
+        <property name="y" value="19"/>
+    </bean>
+
+    <bean id="pointC" class="io.summer.Part7.Point" scope="prototype">
+        <!-- 
+            1. (default) scope="singleton" : Only once per Spring container.
+            2. scope="prototype" : New bean created with every request or reference.
+         -->
+        <property name="x" value="13"/>
+        <property name="y" value="17"/>
+    </bean>
+    
+</beans>
