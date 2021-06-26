@@ -17,3 +17,13 @@ Working : Object factory reads configurations (blueprints of objects) and create
 The ApplicationContext builds on top of the BeanFactory (it's a subclass) and adds other functionality such as easier integration with Springs AOP features, message resource handling (for use in internationalization), event propagation, declarative mechanisms to create the ApplicationContext and optional parent contexts, and application-layer specific contexts such as the WebApplicationContext, among other enhancements.
 
 <img src="Screenshots/application-context.png" alt="application-context" width="480"/> <img src="Screenshots/working-of-bean-factory.png" alt="working-of-bean-factory" width="480"/>
+
+
+### Bean Scope
+
+1. singleton (default) : Only once per Spring container.
+2. prototype : New bean created with every request or reference.
+
+3. request : This scopes a bean definition to an HTTP request. Only valid in the context of a web-aware Spring ApplicationContext.
+4. session : This scopes a bean definition to an HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
+5. global-session : This scopes a bean definition to a global HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
