@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+    <bean id="ScalarTriangle" class="io.summer.Part8.Triangle"/>
+
+    <bean id="pointA" class="io.summer.Part8.Point">
+        <property name="x" value="6"/>
+        <property name="y" value="6"/>
+    </bean>
+
+    <bean id="pointB" class="io.summer.Part8.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="6"/>
+    </bean>
+
+    <bean id="pointC" class="io.summer.Part8.Point" scope="prototype">
+        <property name="x" value="6"/>
+        <property name="y" value="0"/>
+    </bean>
+    
+</beans>
