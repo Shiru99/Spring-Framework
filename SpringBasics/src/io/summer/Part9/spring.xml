@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+    <!-- Triangle -->
+
+    <bean id="parentTriangle" class="io.summer.Part9.Triangle">
+        <property name="p1" ref="pointA" />
+    </bean>
+
+    <bean id="ScalarTriangle1" class="io.summer.Part9.Triangle" parent="parentTriangle">
+        <property name="p2" ref="pointB" />
+        <property name="p3" ref="pointC" />
+    </bean>
+
+    <bean id="ScalarTriangle2" class="io.summer.Part9.Triangle" parent="ScalarTriangle1">
+        <property name="p3" ref="pointD" />
+    </bean>
+
+    <!-- polygon -->
+
+    <bean id="parentPolygon" class="io.summer.Part9.Polygon" abstract="true">
+        <!-- abstract="true" => can't create object of this id -->
+        <property name="points">
+            <list>
+                <ref bean="pointA"/>
+                <ref bean="pointB"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="polygon" class="io.summer.Part9.Polygon" parent="parentPolygon">
+        <property name="points">
+            <list merge="true">
+                <ref bean="pointC"/>
+                <ref bean="pointD"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="pointA" class="io.summer.Part9.Point">
+        <property name="x" value="6" />
+        <property name="y" value="6" />
+    </bean>
+
+    <bean id="pointB" class="io.summer.Part9.Point" scope="prototype">
+        <property name="x" value="0" />
+        <property name="y" value="6" />
+    </bean>
+
+    <bean id="pointC" class="io.summer.Part9.Point">
+        <property name="x" value="6" />
+        <property name="y" value="0" />
+    </bean>
+
+    <bean id="pointD" class="io.summer.Part9.Point">
+        <property name="x" value="0" />
+        <property name="y" value="0" />
+    </bean>
+
+</beans>
