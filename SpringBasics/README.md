@@ -27,3 +27,11 @@ The ApplicationContext builds on top of the BeanFactory (it's a subclass) and ad
 3. request : This scopes a bean definition to an HTTP request. Only valid in the context of a web-aware Spring ApplicationContext.
 4. session : This scopes a bean definition to an HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
 5. global-session : This scopes a bean definition to a global HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
+
+
+--- 
+
+## Resources
+
+* https://dzone.com/
+* https://www.tutorialspoint.com/spring
