@@ -4,22 +4,17 @@
 
 <beans>
 
-    <bean id="ScalarTriangle" class="io.summer.Part7.Triangle">
-        <property name="p1" ref="origin"/>
+    <bean id="ScalarTriangle" class="io.summer.Part7.Triangle" >
+        <property name="p1" ref="pointA"/>
         <property name="p2" ref="pointC"/>
         <property name="p3" ref="pointB"/>
     </bean>
 
-    <bean id="ScalarTriangle0" class="io.summer.Part7.Triangle">
-        <property name="p1" ref="pointB"/>
+    <bean id="ScalarTriangleNew" class="io.summer.Part7.Triangle">
+        <property name="p1" ref="pointA"/>
         <property name="p2" ref="pointC"/>
-        <property name="p3" ref="pointA"/>
+        <property name="p3" ref="pointB"/>
         
-    </bean>
-
-    <bean id="origin" class="io.summer.Part7.Point">
-        <property name="x" value="0"/>
-        <property name="y" value="0"/>
     </bean>
 
     <bean id="pointA" class="io.summer.Part7.Point">
