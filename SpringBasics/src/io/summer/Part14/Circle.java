@@ -13,7 +13,7 @@ public class Circle extends Shape {
     }
 
     // @Resource : By Default checks for beanName - center
-    @Resource
+    @Resource(name="pointA")
     public void setCenter(Point center) {
         this.center = center;
     }
@@ -24,5 +24,14 @@ public class Circle extends Shape {
         getCenter().pointDetails();
         System.out.println();
     }
+
+    @PostConstruct
+    public void initializeCircle() {
+        System.out.println("init of circle");
+    }
     
+    @PreDestroy
+    public void destroyCircle() {
+        System.out.println("destroy of circle");
+    }
 }
