@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
-<beans>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+>
 
-    <!-- <bean id="shape" class="io.summer.Part14.Triangle">
-        <property name="p1" ref="pointA" />
-        <property name="p2" ref="pointB" />
-        <property name="p3" ref="pointC" />
-    </bean> -->
+    <context:annotation-config/>
 
-    <bean id="shape" class="io.summer.Part14.Circle">
-        <property name="center" ref="pointA" />
-    </bean>
+    <bean id="shape" class="io.summer.Part14.Circle"/>
 
-
-    <bean id="pointA" class="io.summer.Part14.Point">
+    <bean id="center" class="io.summer.Part14.Point">
         <property name="x" value="0" />
         <property name="y" value="0" />
+    </bean>
+
+    <bean id="pointA" class="io.summer.Part14.Point">
+        <property name="x" value="6" />
+        <property name="y" value="6" />
     </bean>
 
     <bean id="pointB" class="io.summer.Part14.Point">
@@ -28,4 +32,7 @@
         <property name="x" value="6" />
         <property name="y" value="0" />
     </bean>
+
+    <!-- <bean class = "org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/> -->
+
 </beans>
