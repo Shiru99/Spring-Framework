@@ -3,23 +3,28 @@
 
 <beans>
 
-    <!-- <bean id="shape" class="io.summer.Part13.Triangle">
-        <property name="p1" ref="pointA" />
-        <property name="p2" ref="pointB" />
-        <property name="p3" ref="pointC" />
-    </bean> -->
-
     <bean id="shape" class="io.summer.Part13.Circle">
-        <property name="center" ref="pointA" />
+        <!-- <property name="center" ref="pointA" /> -->
     </bean>
-
 
     <bean id="pointA" class="io.summer.Part13.Point">
         <property name="x" value="0" />
         <property name="y" value="0" />
     </bean>
 
-    <bean id="pointB" class="io.summer.Part13.Point">
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+    <!-- BeanPostProcessor makes sure that all @Required dependencies are available for each of the classes otherwise throws exception -->
+
+
+
+
+    <!-- <bean id="shape" class="io.summer.Part13.Triangle">
+        <property name="p1" ref="pointA" />
+        <property name="p2" ref="pointB" />
+        <property name="p3" ref="pointC" />
+    </bean> -->
+    
+    <!-- <bean id="pointB" class="io.summer.Part13.Point">
         <property name="x" value="0" />
         <property name="y" value="6" />
     </bean>
@@ -27,5 +32,6 @@
     <bean id="pointC" class="io.summer.Part13.Point">
         <property name="x" value="6" />
         <property name="y" value="0" />
-    </bean>
+    </bean> -->
+
 </beans>

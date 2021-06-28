@@ -11,6 +11,5 @@ public class DrawingShapes {
         shape.draw();
 
         applicationContext.close();
-        
     }
 }
