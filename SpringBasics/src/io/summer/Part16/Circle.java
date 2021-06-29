@@ -1,12 +1,15 @@
 package io.summer.Part16;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Circle extends Shape {
 
     String shapeType = "Circle";
+
+    MessageSource messageSource;
 
     Point center;
 
@@ -21,8 +24,7 @@ public class Circle extends Shape {
 
     @Override
     public void draw() {
-        System.out.print("Drawing Circle with center - ");
-        System.out.print("("+getCenter().getX()+","+getCenter().getY()+")"+"\t");
-        System.out.println();
+        System.out.print("Drawing Circle : ");
+        System.out.println("Circle center - ("+getCenter().getX()+","+getCenter().getY()+")");
     }
 }

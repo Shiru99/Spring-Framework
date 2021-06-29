@@ -17,5 +17,11 @@
         <property name="y" value="0" />
     </bean>
 
-
-</beans>
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>  <!-- list of all .properties files -->
+                <value>io.summer.Part16.messages</value>  <!-- No need of extension - .properties -->
+            </list>
+        </property>
+    </bean>
+</beans> 
