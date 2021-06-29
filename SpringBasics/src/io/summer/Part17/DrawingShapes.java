@@ -6,11 +6,11 @@ public class DrawingShapes {
     public static void main(String[] args) {
         
         var applicationContext = new ClassPathXmlApplicationContext("io/summer/Part17/spring.xml");
-        applicationContext.registerShutdownHook();
+        // ContextRefreshedEvent
         
         Shape shape = (Shape) applicationContext.getBean("circle");
         shape.draw();
 
-        applicationContext.close();
+        applicationContext.close();     // ContextClosedEvent
     }
 }
