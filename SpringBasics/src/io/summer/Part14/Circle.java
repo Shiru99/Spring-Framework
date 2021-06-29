@@ -1,5 +1,7 @@
 package io.summer.Part14;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import jakarta.annotation.Resource;
 
 public class Circle extends Shape {
