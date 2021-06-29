@@ -10,9 +10,6 @@ public class DrawingShapes {
     public static void main(String[] args) {
         
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("io/summer/Part16/spring.xml");
-        
-        Shape shape = (Shape) applicationContext.getBean("circle");
-        shape.draw();
 
         // MessageSource : Extra functionality of ApplicationContext over BeanFactory
 
@@ -20,20 +17,23 @@ public class DrawingShapes {
         System.out.println(
             applicationContext.getMessage(
                 "greetings-EN",         // name of property
-                null,                   // list of objects for parameterized message
+                null,                   // array of objects for parameterized message
                 "Default Greetings",    // default property value
                 Locale.ENGLISH          // locale
             )
         );
 
-        System.out.println(
-            applicationContext.getMessage(
-                "greetings-ITL",         // name of property
-                null,                   // list of objects for parameterized message
-                "Default Greetings",    // default property value
-                Locale.ITALIAN
-            )
-        );
+        // System.out.println(
+        //     applicationContext.getMessage(
+        //         "greetings-ITL",         // name of property
+        //         null,                    // array of objects for parameterized message
+        //         "Default Greetings",     // default property value
+        //         Locale.ITALIAN
+        //     )
+        // );
+
+        Shape shape = (Shape) applicationContext.getBean("circle");
+        shape.draw();
 
 
         ((AbstractApplicationContext) applicationContext).close();
