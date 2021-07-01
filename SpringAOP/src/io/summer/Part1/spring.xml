@@ -12,27 +12,19 @@
    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
 >
    <context:annotation-config/>
-   <aop:aspectj-autoproxy/>
 
+   <aop:aspectj-autoproxy/>
+    <bean name="loggingAspect" class="io.summer.Part1.aspect.LoggingAspect"></bean>
     <!-- bean definition & AOP specific configuration -->
     
-    <bean id="shape" class="io.summer.Part1.Circle">
-        <property name="center" ref="pointA" />
+    <bean id="circle" class="io.summer.Part1.model.Circle">
+        <property name="name" value="वर्तुलम्"></property>
     </bean>
 
-
-    <bean id="pointA" class="io.summer.Part1.Point">
-        <property name="x" value="0" />
-        <property name="y" value="0" />
+    <bean id="triangle" class="io.summer.Part1.model.Triangle">
+        <property name="name" value="त्रिभुजम्"></property>
     </bean>
 
-    <bean id="pointB" class="io.summer.Part1.Point">
-        <property name="x" value="0" />
-        <property name="y" value="6" />
-    </bean>
-
-    <bean id="pointC" class="io.summer.Part1.Point">
-        <property name="x" value="6" />
-        <property name="y" value="0" />
-    </bean>
+    <bean name="shapeService" class="io.summer.Part1.service.ShapeService" autowire="byName"/>
+    
 </beans>
