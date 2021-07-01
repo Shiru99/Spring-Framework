@@ -1,5 +1,21 @@
 # Spring AOP (Aspect Oriented Programming)
 
+JARs :
+
+1. AspectJ - aspectjrt.jar & aspectjweaver.jar 
+    aspectj-1.9.7.jar : https://github.com/eclipse/org.aspectj/releases/tag/V1_9_7 
+    (Download JAR, extract it, aspectj-1.9.7/files/lib)
+
+2. AOP Alliance - aopalliance-1.0.jar
+    aopalliance-alpha1.jar - https://sourceforge.net/projects/aopalliance/files/latest/download
+
+3. CGILIB - glib-3.3.0.jar
+    cglib-3.3.0.jar - https://github.com/cglib/cglib/releases/tag/RELEASE_3_3_0 
+
+4. Spring 3 ASM - asm-9.2.jar
+    asm-9.2.jar - https://repository.ow2.org/nexus/content/repositories/releases/org/ow2/asm/asm/9.2/
+---
+<br>
 
 ## AOP (Aspect Oriented Programming)
 
