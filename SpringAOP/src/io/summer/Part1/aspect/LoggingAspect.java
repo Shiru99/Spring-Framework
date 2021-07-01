@@ -1,5 +1,6 @@
 package io.summer.Part1.aspect;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 
@@ -7,7 +8,12 @@ import org.aspectj.lang.annotation.Before;
 public class LoggingAspect {
 
     @Before("execution(public String getName())")
-    public void loggingAdvice() {
+    public void advice0() {
         System.out.println("Advice run. Get method called");
+    }
+
+    @After("execution(public String getName())")
+    public void advice1() {
+        System.out.println("Advice run. Get method finished");
     }
 }
