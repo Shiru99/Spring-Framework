@@ -11,9 +11,11 @@ public class MainApp {
         ShapeService shapeService =  ctx.getBean("shapeService",ShapeService.class);
 
         System.out.println(" --- ");
+        shapeService.getCircle().setName("circulo");
+        System.out.println(" --- ");
         String str = shapeService.getCircle().getName();
         System.out.println(str);
-        
+
         ctx.close();
     }
 }
