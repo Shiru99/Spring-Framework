@@ -50,3 +50,12 @@ therefore, AOP
 This is a module which has a set of APIs providing cross-cutting requirements. For example, a logging module would be called AOP aspect for logging. An application can have any number of aspects depending on the requirement.
 
 <img src="Screenshots/Aspects.png" alt="Aspects" width="480"/> <img src="Screenshots/Wrapping-aspects.png" alt="Wrapping aspects around methods" width="480"/>
+
+---
+
+## Naming Conventions :
+
+* aspect package
+* model package
+* service package
+* impl package (for implementations)
