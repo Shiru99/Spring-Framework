@@ -7,22 +7,22 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class LoggingAspect {
 
-    @Around("args(name)")
-    public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint,String name) {
-        
-        Object returnValue = null;
+    @Around("@annotation(io.summer.Part6.aspect.CustomAdviceAnnotation)")
+    public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
+        Object returnObject = null;
         try {
             System.out.println("Before");
-            returnValue = proceedingJoinPoint.proceed();  // execute the target method 
-            // (Around makes target method execution optional)
+            returnObject =  proceedingJoinPoint.proceed();
+            if (returnObject != null) {
+                System.out.println("Return Object - "+returnObject);
+            }
             System.out.println("After");
-        } catch (Throwable e) {
+        } catch (Throwable e) 
+        {
             System.out.println("AfterThrowing");
             e.printStackTrace();
-        } 
+        }
         System.out.println("AfterReturning");
-        returnValue = "Dummy Value";
-        return returnValue;
+        return returnObject;
     }
-
 }
