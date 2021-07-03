@@ -1,14 +1,28 @@
 package io.summer.Part5.aspect;
 
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+
 @Aspect
 public class LoggingAspect {
 
-    @Before("args(name)")
-    public void stringArgMethods(String name) {
-        System.out.println("This method takes String as argument. Value of string-arg - "+name);
+    @Around("args(name)")
+    public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint,String name) {
+        
+        Object returnValue = null;
+        try {
+            System.out.println("Before");
+            returnValue = proceedingJoinPoint.proceed();  // execute the target method 
+            // (Around makes target method execution optional)
+            System.out.println("After");
+        } catch (Throwable e) {
+            System.out.println("AfterThrowing");
+            e.printStackTrace();
+        } 
+        System.out.println("AfterReturning");
+        returnValue = "Dummy Value";
+        return returnValue;
     }
-    
-}
 
+}
