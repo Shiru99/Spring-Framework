@@ -18,9 +18,17 @@ public class LoggingAspect {
         System.out.println("Successful ! This method takes String as argument. Value of string-arg - "+name);
     }
 
-    @AfterThrowing("args(name)")
-    public void unsuccessfulExecution(String name) {
-        System.out.println("UN-Successful ! This method takes String as argument. Value of string-arg - "+name);
+    // @AfterThrowing("args(name)")
+    @AfterThrowing(pointcut = "args(name)", throwing = "ex")
+    public void unsuccessfulExecution(String name,RuntimeException ex) {
+        System.out.println("UN-Successful : "+ex);
+    }
+
+
+    @AfterReturning(pointcut="args(name)",returning = "returnString")
+    public void stringArgMethodReturnObject(String name,String returnString) {
+        // returnString = "dummy Value";   // local variable no effect on return Object
+        System.out.println("Return value : "+returnString);
     }
     
 }

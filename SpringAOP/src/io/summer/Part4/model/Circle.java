@@ -13,5 +13,10 @@ public class Circle {
         throw(new RuntimeException());
     }
 
-   
+    public String setNameReturns(String name) {
+        System.out.println("Setting circle name - "+name);
+        this.name = name;
+        // throw(new RuntimeException());
+        return name;
+    }
 }
