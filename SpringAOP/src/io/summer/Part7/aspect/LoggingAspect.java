@@ -1,14 +1,11 @@
 package io.summer.Part7.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 
-@Aspect
+// @Aspect  -   <aop:aspect/>
 public class LoggingAspect {
 
-    @Around("allCircleMethods(name)")
+    // @Around("methodWithArg(name)") - <aop:around method="myAroundAdvice" pointcut-ref="methodWithArg" />
     public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint,String name) {
         
         Object returnValue = null;
@@ -24,7 +21,9 @@ public class LoggingAspect {
         return returnValue;
     }
 
-    @Pointcut("args(name)")
-    public void allCircleMethods(String name) { }
+    /* 
+        @Pointcut("args(name)")     -   <aop:pointcut id="methodWithArg" expression="args(name)"/>
+        public void methodWithArg(String name){}
+    */
 }
 

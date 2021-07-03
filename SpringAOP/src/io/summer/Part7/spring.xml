@@ -23,4 +23,17 @@
     <aop:aspectj-autoproxy />
     <bean name="loggingAspect" class="io.summer.Part7.aspect.LoggingAspect" />
 
+    <!-- AOP XML Config -->
+    <aop:config>
+        <aop:aspect id="loggingAspectID" ref="loggingAspect">
+        <!-- 
+            <aop:pointcut id="methodWithArg" expression="args(name)"/>
+            <aop:around method="myAroundAdvice" pointcut-ref="methodWithArg" /> 
+        -->
+
+            <aop:around method="myAroundAdvice" pointcut="args(name)" />
+
+        </aop:aspect>
+    </aop:config>
+
 </beans>
