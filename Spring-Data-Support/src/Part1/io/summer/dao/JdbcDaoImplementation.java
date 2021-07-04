@@ -1,29 +1,49 @@
 package Part1.io.summer.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+// import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import JDBC.io.summer.model.Circle;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import Part1.io.summer.model.Circle;
 
 /**
  * @implNote : Data Access Object (DAO)
  */
+
+@Component
 public class JdbcDaoImplementation {
+
+    @Autowired
+    private DataSource dataSource;
+
+    public DataSource getDataSource() {
+        return dataSource;
+    }
+
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
     public Circle getCircle(int circleID) {
 
         Connection connection = null;
         Circle circle = null;
-        String dbURL = "jdbc:postgresql://localhost:5432/dbname";
-        String user = "Shiru99";
-        String pass = "1234";
+        // String dbURL = "jdbc:postgresql://localhost:5432/dbname";
+        // String user = "Shiru99";
+        // String pass = "1234";
         String query = "SELECT * FROM circle where id=?";
 
         try {
 
-            connection = DriverManager.getConnection(dbURL, user, pass);
+            // connection = DriverManager.getConnection(dbURL, user, pass);
+            connection = dataSource.getConnection();
             System.out.println("Connected to PostgreSQL database!");
 
             PreparedStatement pStatement = connection.prepareStatement(query);

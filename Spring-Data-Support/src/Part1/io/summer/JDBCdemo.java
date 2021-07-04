@@ -4,13 +4,22 @@
 
 package Part1.io.summer;
 
-import JDBC.io.summer.dao.JdbcDaoImplementation;
-import JDBC.io.summer.model.Circle;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import Part1.io.summer.dao.JdbcDaoImplementation;
+import Part1.io.summer.model.Circle;
 
 public class JDBCdemo {
     public static void main(String[] args) {
 
-        Circle circle = new JdbcDaoImplementation().getCircle(2);
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("Part1/io/summer/spring.xml");
+        JdbcDaoImplementation dao = ctx.getBean("jdbcDaoImplementation",JdbcDaoImplementation.class);
+
+        Circle circle = dao.getCircle(2);
         System.out.println(circle.getName());
+
+        ((AbstractApplicationContext) ctx).close();
     }
 }
