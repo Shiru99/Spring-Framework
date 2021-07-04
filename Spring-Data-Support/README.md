@@ -1,5 +1,7 @@
 # Spring Data Support 
 
+## Postgresql Basics
+
 ### Postgresql Installation
 ```
 $ sudo apt-get update
@@ -31,11 +33,20 @@ $ psql -U Shiru99 -h localhost -p 5432 -d dbname;
 
 ***Create New Table***
 ```
-dbname=> CREATE TABLE table_name(
-   ID INT PRIMARY KEY     NOT NULL,
-   NAME           TEXT    NOT NULL,
-   AGE            INT     NOT NULL,
-   ADDRESS        CHAR(50),
-   SALARY         REAL
+dbname=> CREATE TABLE circle(
+   ID    INT   PRIMARY KEY    NOT NULL,
+   NAME  CHAR(50)
 );
 ```
+
+***Insert New Table-entries***
+```
+dbname=> INSERT INTO circle VALUES (1, 'First Circle');
+dbname=> INSERT INTO circle VALUES (2, 'वर्तुलम्');
+```
+
+***Table-entries***
+```
+dbname=> select * from circle;
+```
+---
