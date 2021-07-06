@@ -4,6 +4,8 @@
 
 package Part2.io.summer;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,10 +17,16 @@ public class JDBCdemo {
     public static void main(String[] args) {
 
         ApplicationContext ctx = new ClassPathXmlApplicationContext("Part2/io/summer/spring.xml");
-        JdbcDaoImplementation dao = ctx.getBean("jdbcDaoImplementation",JdbcDaoImplementation.class);
+        JdbcDaoImplementation dao = ctx.getBean("jdbcDaoImplementation", JdbcDaoImplementation.class);
 
-        // Using JDBC template - requires datasource & Query
-        System.out.println(dao.getCircleCount());
+        // System.out.println(dao.getCircleCount());       // 2
+        // System.out.println(dao.getCircleName(2));       // वर्तुलम्   
+        // System.out.println(dao.getCircle(1).getName()); // First Circle
+
+        List<Circle> circles = dao.getAllCircles();
+        for (Circle circle : circles) {
+            System.out.println(circle.getId()+" - "+circle.getName());
+        }
 
         ((AbstractApplicationContext) ctx).close();
     }
