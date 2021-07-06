@@ -45,6 +45,11 @@ dbname=> INSERT INTO circle VALUES (1, 'First Circle');
 dbname=> INSERT INTO circle VALUES (2, 'वर्तुलम्');
 ```
 
+***List of Tables***
+```
+dbname=> \dt;
+```
+
 ***Table-entries***
 ```
 dbname=> select * from circle;
