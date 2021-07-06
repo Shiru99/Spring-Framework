@@ -18,7 +18,7 @@
         <property name="password" value="1234"/>
     </bean>
 
-    <!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="dataSource"></property>
-    </bean> -->
+    <bean id="jdbcDaoImplSupport" class="Part5.io.summer.dao.JdbcDaoImplSupport">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 </beans>
