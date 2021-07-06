@@ -20,6 +20,9 @@ public class JDBCdemo {
         Circle circle = dao.getCircle(2);
         System.out.println(circle.getName());
 
+        // Using JDBC template - requires datasource & Query
+        System.out.println(dao.getCircleCount());
+
         ((AbstractApplicationContext) ctx).close();
     }
 }

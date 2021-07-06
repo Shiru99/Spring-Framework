@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import Part1.io.summer.model.Circle;
@@ -25,10 +26,6 @@ public class JdbcDaoImplementation {
 
     public DataSource getDataSource() {
         return dataSource;
-    }
-
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
     }
 
     public Circle getCircle(int circleID) {
@@ -78,4 +75,36 @@ public class JdbcDaoImplementation {
 
         return circle;
     }
+
+
+
+    ////////////////////////////// Using JDBC Template //////////////////////////////
+
+    // private JdbcTemplate jdbcTemplate = new JdbcTemplate();
+    private JdbcTemplate jdbcTemplate;
+
+
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+    
+    // Using JDBC template - requires datasource & Query
+    public int getCircleCount(){
+        // jdbcTemplate.setDataSource(getDataSource());
+        int count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM circle",Integer.class);
+
+        return count;
+    }
+
+    @Autowired
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;   // for M-1
+        this.jdbcTemplate = new JdbcTemplate(dataSource);   // for M-2
+    }
+
+
 }
