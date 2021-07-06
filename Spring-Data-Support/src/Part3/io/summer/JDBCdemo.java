@@ -4,6 +4,8 @@
 
 package Part3.io.summer;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -17,8 +19,15 @@ public class JDBCdemo {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("Part3/io/summer/spring.xml");
         JdbcDaoImplementation dao = ctx.getBean("jdbcDaoImplementation",JdbcDaoImplementation.class);
 
-        // Using JDBC template - requires datasource & Query
-        System.out.println(dao.getCircleCount());
+        dao.insertCircle(new Circle(3, "परिकर्षण"));
+
+        List<Circle> circles = dao.getAllCircles();
+        for (Circle circle : circles) {
+            System.out.println(circle.getId()+" - "+circle.getName());
+        }
+
+        dao.createTriangleTable();
+        
 
         ((AbstractApplicationContext) ctx).close();
     }

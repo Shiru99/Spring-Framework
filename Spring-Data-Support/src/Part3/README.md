@@ -2,3 +2,7 @@
 
 ## JDBC Template
 
+* query()
+* update()
+* execute()
+
