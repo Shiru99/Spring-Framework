@@ -19,13 +19,13 @@ public class JDBCdemo {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("Part4/io/summer/spring.xml");
         JdbcDaoImplementation dao = ctx.getBean("jdbcDaoImplementation", JdbcDaoImplementation.class);
 
-        System.out.println(dao.getCircleName(2));       // वर्तुलम्   
-        // System.out.println(dao.getCircle(3).getName());
+        System.out.println(dao.getCircleName(2));
+        dao.insertCircle(new Circle(7, "7th Circle"));
 
-        // List<Circle> circles = dao.getAllCircles();
-        // for (Circle circle : circles) {
-        //     System.out.println(circle.getId()+" - "+circle.getName());
-        // }
+        List<Circle> circles = dao.getAllCircles();
+        for (Circle circle : circles) {
+            System.out.println(circle.getId()+" - "+circle.getName());
+        }
 
         ((AbstractApplicationContext) ctx).close();
     }
